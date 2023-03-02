@@ -1,9 +1,20 @@
+import styled from "styled-components";
+
 const TestBox = () => {
   return (
-    <div>
-      <h1>Test Box</h1>
-    </div>
+    <Container>
+      <Box>Test Box</Box>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+`
+
+const Box = styled.p`
+  font-size: 50px;
+  color: orange;
+`
 
 export default TestBox;
