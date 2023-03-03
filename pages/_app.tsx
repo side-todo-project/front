@@ -1,3 +1,4 @@
+import Layout from '@/components/layout';
 import { defaultQueryOptions } from '@/constants';
 import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
@@ -18,7 +19,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <GlobalStyles />
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false} />
+        <Layout>
           <Component {...pageProps} />
+        </Layout>
       </QueryClientProvider>
     </>
   );
