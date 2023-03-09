@@ -3,7 +3,7 @@ import styled from "styled-components";
 const TestBox = () => {
   return (
     <Container>
-      <Box>Test Box</Box>
+      <Box>Test Page</Box>
     </Container>
   );
 };
