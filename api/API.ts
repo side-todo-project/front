@@ -12,6 +12,7 @@ API.interceptors.request.use(
   },
   function (error) {
     // Do something with request error
+    // 401에러 여기서 처리하기
     return Promise.reject(error);
   }
 );
