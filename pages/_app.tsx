@@ -30,4 +30,10 @@ export default function App({ Component, pageProps }: AppProps) {
   );
 }
 
-const GlobalStyles = createGlobalStyle``;
+const GlobalStyles = createGlobalStyle`
+
+
+  h1 {
+    font-size: 30px;
+  }
+`;

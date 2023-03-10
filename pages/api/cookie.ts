@@ -21,12 +21,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // store new Cookies
     } else if (req.method === 'POST') {
       if (!req.body) return res.status(400).json({ error: 'body is empty' });
-      const {} = req.body;
-      res.setHeader('Set-Cookie', []);
+      const { accessToken, refreshToken } = req.body;
+      res.setHeader('Set-Cookie', [
+        `accessToken=${accessToken}; path=/; max-age=${COOKIE_MAX_AGE};`,
+        `refreshToken=${refreshToken}; path=/; max-age=${COOKIE_MAX_AGE};`,
+      ]);
       res.status(200).json({ message: 'success' });
       // delete Cookies
     } else if (req.method === 'DELETE') {
-      res.setHeader('Set-Cookie', []);
+      res.setHeader('Set-Cookie', [
+        `accessToken=; path=/; max-age=0;`,
+        `refreshToken=; path=/; max-age=0;`,
+      ]);
       res.status(200).json({ message: 'success' });
     } else {
       res.status(405).json({ error: 'Method not allowed' });
