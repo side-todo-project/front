@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-const BASEURL = 'http://localhost:3000';
+const BASEURL = 'http://3.34.73.43:3000';
 
 const Login = () => {
   return (
