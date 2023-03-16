@@ -2,7 +2,7 @@ import { useUserInfo } from '@/components/common/userProvider';
 import TestBox from '@/components/TestBox';
 import { GetServerSideProps } from 'next';
 
-export default function Home({cookies}) {
+export default function Home({ cookies }) {
   const { user } = useUserInfo();
   console.log('####', user, cookies);
   return (
