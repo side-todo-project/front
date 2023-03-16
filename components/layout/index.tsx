@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import styled from 'styled-components';
+import Footer from './Footer';
+import Header from './Header';
 
 const Layout = ({ children }) => {
   return (
@@ -10,11 +12,23 @@ const Layout = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container>{children}</Container>
+
+      <Container>
+        <Header />
+        <BodyContainer>{children}</BodyContainer>
+        <Footer />
+      </Container>
     </>
   );
 };
 
 const Container = styled.div``;
 
+const BodyContainer = styled.div``;
+
 export default Layout;
+
+
+const WW = styled.input.attrs({ type: 'checkbox' })`
+
+`
