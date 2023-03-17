@@ -3,19 +3,31 @@ import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
 import { useUserInfo } from '@/components/common/userProvider';
 import { storeCookies } from '@/api/server';
+import { ITokens, IUserInfo } from '@/types';
 
-const LoginSuccess = ({ query }) => {
+/**
+ * 소셜 로그인 성공시 리다이렉트 되는 페이지
+ * 토큰, 유저 정보 저장후 메인 페이지로 이동
+ */
+interface IProps {
+  query: IUserInfo & ITokens;
+}
+
+const LoginSuccess = ({ query }: IProps) => {
   const router = useRouter();
 
   const { setUser } = useUserInfo();
   useEffect(() => {
     (async () => {
-      const { accessToken, refreshToken } = query;
-      await storeCookies({accessToken, refreshToken});
-      setUser(query);
+      const { accessToken, refreshToken, ...userInfo } = query;
+      // set tokens
+      await storeCookies({ accessToken, refreshToken });
+      // set user info
+      setUser(userInfo);
+
       router.push('/');
     })();
-  },[])
+  }, []);
 
   return <div>Login Success</div>;
 };
