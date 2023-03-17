@@ -1,3 +1,4 @@
+import { DefaultTheme } from '@/styles/ColorPalette';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Footer from './Footer';
@@ -22,13 +23,17 @@ const Layout = ({ children }) => {
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: ${DefaultTheme.Neutral.N100};
+`;
 
-const BodyContainer = styled.div``;
+const BodyContainer = styled.div`
+  width: 100%;
+`;
 
 export default Layout;
 
-
-const WW = styled.input.attrs({ type: 'checkbox' })`
-
-`
+const WW = styled.input.attrs({ type: 'checkbox' })``;
