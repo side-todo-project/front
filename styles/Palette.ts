@@ -1,4 +1,3 @@
-
 const Palette = {
   White: '#FFFFFF',
   Black: '#000000',
@@ -21,6 +20,5 @@ const Palette = {
   },
   Error: '#F04438',
 } as const;
-
 
 export default Palette;
