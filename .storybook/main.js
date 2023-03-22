@@ -12,6 +12,7 @@ module.exports = {
   core: {
     builder: '@storybook/builder-webpack5',
   },
+  // 절대경로 인식 못하는문제 수정
   webpackFinal: async (config) => { 
     console.log(config);
     config.resolve.plugins = [

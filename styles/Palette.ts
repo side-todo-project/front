@@ -1,4 +1,5 @@
-export default {
+
+const Palette = {
   White: '#FFFFFF',
   Black: '#000000',
   Neutral: {
@@ -19,4 +20,7 @@ export default {
     P200: '#5252DD',
   },
   Error: '#F04438',
-};
+} as const;
+
+
+export default Palette;
