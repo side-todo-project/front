@@ -1,4 +1,4 @@
-import { DefaultTheme } from '@/styles/ColorPalette';
+import Palette from '@/styles/Palette';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Footer from './Footer';
@@ -27,7 +27,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background-color: ${DefaultTheme.Neutral.N100};
+  background-color: ${Palette.Neutral.N100};
 `;
 
 const BodyContainer = styled.div`

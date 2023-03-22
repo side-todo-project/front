@@ -1,7 +1,8 @@
 import { UserProvider } from '@/components/common/userProvider';
 import Layout from '@/components/layout';
 import { defaultQueryOptions } from '@/constants';
-import { DefaultTheme } from '@/styles/ColorPalette';
+import GlobalStyles from '@/styles/GlobalStyles';
+import Palette from '@/styles/Palette';
 import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { AppProps } from 'next/app';
@@ -21,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <GlobalStyles />
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false} />
-        <ThemeProvider theme={DefaultTheme}>
+        <ThemeProvider theme={Palette}>
           <UserProvider>
             <Layout>
               <Component {...pageProps} />
@@ -32,11 +33,3 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   );
 }
-
-const GlobalStyles = createGlobalStyle`
-
-
-  h1 {
-    font-size: 30px;
-  }
-`;
