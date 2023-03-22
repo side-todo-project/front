@@ -1,11 +1,10 @@
 import styled, { css } from 'styled-components';
-import Palette from './Palette';
 
-const layoutMarginStyle = css`
+// 레이아웃 좌우 여백
+export const layoutMarginStyle = css`
   max-width: 1200px;
   height: 100%;
 `;
-
 
 /* ------------------------------------ FlexBox ----------------------------------- */
 
@@ -23,13 +22,14 @@ export const VFlex = css`
   align-items: center;
 `;
 
-export const HFlexBox = styled.div<{ customStyle?: any }>`
-  ${HFlex};
-  ${(p) => p.customStyle};
+export const FlexBox = styled.div<{
+  dir: 'row' | 'column';
+  justify?: 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around';
+  alignItems?: 'center' | 'flex-start' | 'flex-end' | 'stretch' | 'baseline';
+  alignContent?: 'center' | 'flex-start' | 'flex-end' | 'stretch' | 'space-between' | 'space-around';
+}>`
+  ${(p) => (p.dir === 'row' ? HFlex : VFlex)};
+  justify-content: ${(p) => p.justify};
+  align-items: ${(p) => p.alignItems};
+  align-content: ${(p) => p.alignContent};
 `;
-
-export const VFlexBox = styled.div<{ customStyle?: any }>`
-  ${VFlex};
-  ${(p) => p.customStyle};
-`;
-

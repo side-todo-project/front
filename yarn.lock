@@ -1639,6 +1639,11 @@
   resolved "https://registry.yarnpkg.com/@next/font/-/font-13.1.6.tgz#2bf99e3321ec9b4d65781c0d0ebff072e8752e1a"
   integrity sha512-AITjmeb1RgX1HKMCiA39ztx2mxeAyxl4ljv2UoSBUGAbFFMg8MO7YAvjHCgFhD39hL7YTbFjol04e/BPBH5RzQ==
 
+"@next/plugin-storybook@^13.2.4":
+  version "13.2.4"
+  resolved "https://registry.yarnpkg.com/@next/plugin-storybook/-/plugin-storybook-13.2.4.tgz#4206ed2c95cf9817f09581e9e5f6631d54a3be02"
+  integrity sha512-wruwtRdYUbg91qVLta/lt4zIiXPzfrdY50ZPBDF8Oz9xFF/UlAFnYpIxavgTclAmfj41IeaUDlnhLzFXQS3tpw==
+
 "@next/swc-android-arm-eabi@13.1.6":
   version "13.1.6"
   resolved "https://registry.yarnpkg.com/@next/swc-android-arm-eabi/-/swc-android-arm-eabi-13.1.6.tgz#d766dfc10e27814d947b20f052067c239913dbcc"
