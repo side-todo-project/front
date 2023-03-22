@@ -1,23 +1,33 @@
-import React from 'react'
-import styled from 'styled-components'
+import Typo from '@/styles/Typo';
+import React from 'react';
+import styled from 'styled-components';
 
 const Button = styled.button`
   padding: 16px 8px;
   gap: 8px;
-
-  width: 360px;
-  height: 44px;
-
-  /* Primary/primary-200 */
-
-  background: #5252DD;
-  border-radius: 8px;
-
-  /* Inside auto layout */
-
   flex: none;
   order: 0;
   flex-grow: 0;
-`
+  width: 360px;
+  height: 44px;
+  cursor: pointer;
 
-export default Button
+  /* Primary/primary-200 */
+  border: none;
+  background: ${(p) => p.theme.Primary.P100};
+  border-radius: 8px;
+
+  color: ${(p) => p.theme.White};
+  &:hover {
+    background: ${(p) => p.theme.Primary.P200};
+  }
+
+  &:disabled {
+    background: ${(p) => p.theme.Primary.P50};
+  }
+  /* Button text */
+  ${Typo.Button.M};
+  line-height: 0;
+`;
+
+export default Button;
