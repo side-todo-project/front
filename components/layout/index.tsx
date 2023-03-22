@@ -1,4 +1,5 @@
 import Palette from '@/styles/Palette';
+import { FlexBox, layoutMarginStyle } from '@/styles/Utils';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Footer from './Footer';
@@ -16,7 +17,9 @@ const Layout = ({ children }) => {
 
       <Container>
         <Header />
-        <BodyContainer>{children}</BodyContainer>
+        <FlexBox dir="row" justify='center'>
+          <BodyContainer>{children}</BodyContainer>
+        </FlexBox>
         <Footer />
       </Container>
     </>
@@ -31,6 +34,7 @@ const Container = styled.div`
 `;
 
 const BodyContainer = styled.div`
+  ${layoutMarginStyle};
   width: 100%;
 `;
 
