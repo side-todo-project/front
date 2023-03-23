@@ -24,8 +24,8 @@ const LoginSuccess = ({ query }: IProps) => {
       await storeCookies({ accessToken, refreshToken });
       // set user info
       setUser(userInfo);
-
-      router.push('/');
+      // if new user, go to nickname page
+      router.push(userInfo.newUser ? '/nickname' : '/');
     })();
   }, []);
 
