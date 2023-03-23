@@ -1,5 +1,9 @@
+import Palette from '@/styles/Palette';
+import { FlexBox, layoutMarginStyle } from '@/styles/Utils';
 import Head from 'next/head';
 import styled from 'styled-components';
+import Footer from './Footer';
+import Header from './Header';
 
 const Layout = ({ children }) => {
   return (
@@ -10,11 +14,30 @@ const Layout = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container>{children}</Container>
+
+      <Container>
+        <Header />
+        <FlexBox dir="row" justify='center'>
+          <BodyContainer>{children}</BodyContainer>
+        </FlexBox>
+        <Footer />
+      </Container>
     </>
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: ${Palette.Neutral.N100};
+`;
+
+const BodyContainer = styled.div`
+  ${layoutMarginStyle};
+  width: 100%;
+`;
 
 export default Layout;
+
+const WW = styled.input.attrs({ type: 'checkbox' })``;
