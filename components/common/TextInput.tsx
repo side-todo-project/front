@@ -13,7 +13,6 @@ const TextInput = ({ isError, errorText, ...props }) => {
 
 const Container = styled.div`
   height: 60px;
-  max-width: 300px;
 `;
 
 const Input = styled.input.attrs({ type: 'text' })`

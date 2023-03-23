@@ -2,25 +2,34 @@ import Button from '@/components/common/Button';
 import { FlexBox } from '@/styles/Utils';
 import React from 'react';
 import styled from 'styled-components';
+import characterFirst from '@/public/assets/header/character-first.svg';
+import Image from 'next/image';
+import Palette from '@/styles/Palette';
+import TextInput from '@/components/common/TextInput';
 
 const mypage = () => {
   return (
-    <Container className='123123123123123123123123123123213123'>
+    <Container>
       {/* 좌측 */}
-      <FlexBox dir="column">
-        <FlexBox dir="row">
+      <CharacterFlexBox>
+        <FlexBox dir="column" justify="space-between" className="title-box">
+          <FlexBox dir="row">
           <p>순빵999</p>
           <p>시작한지 1일쩨</p>
+          </FlexBox>
+          <FlexBox dir="row" className="introduction-box">
+            <TextInput />
+            <Button>확인</Button>
+          </FlexBox>
         </FlexBox>
+        <Image src={characterFirst} alt="character-first" width={220.6} height={274.4} />
         <FlexBox dir="row">
-          <input></input>
-          <Button>확인</Button>
+          <div>mission</div>
+          <p>3일 연속 일정 클리어에 성공하기</p>
         </FlexBox>
-        <div>이미지</div>
-        <FlexBox dir="row"></FlexBox>
-      </FlexBox>
+      </CharacterFlexBox>
       {/* 우측 */}
-      <FlexBox dir="column">
+      <ScheduleFlexBox>
         <FlexBox dir="row">
           <div>월</div>
           <div>화</div>
@@ -36,25 +45,37 @@ const mypage = () => {
             <Button width={360}>일정 등록하기</Button>
           </FlexBox>
         </FlexBox>
-      </FlexBox>
+      </ScheduleFlexBox>
     </Container>
   );
 };
 
-const Container = styled.div`
-  width: 500px;
-  height: 500px;
-  border: 1px solid black;
-  background-color: green;
+const Container = styled(FlexBox).attrs({ dir: 'row' })`
+  width: 100%;
+  height: 43.75rem;
+`;
 
-`
-
-const CharacterFlexBox = styled(FlexBox).attrs({ dir: 'column' })`
+const CharacterFlexBox = styled(FlexBox).attrs({ dir: 'column', justify: 'space-between' })`
   width: 50%;
-`
+  height: 100%;
+  background-color: orange;
+  .title-box {
+    height: 100px;
+    width: 100%;
+    background-color: green;
+  }
+  .introduction-box {
+    width: 100%;
+    height: 44px;
+    background-color: yellow;
+  }
+`;
 
 const ScheduleFlexBox = styled(FlexBox).attrs({ dir: 'column' })`
   width: 50%;
-`
+  height: 100%;
+  border-radius: 20px;
+  background-color: ${Palette.White};
+`;
 
 export default mypage;
