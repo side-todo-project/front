@@ -27,7 +27,7 @@ const LoginSuccess = ({ query }: IProps) => {
       // if new user, go to nickname page
       router.push(userInfo.newUser ? '/nickname' : '/');
     })();
-  }, []);
+  }, [query, router, setUser]);
 
   return <div>Login Success</div>;
 };
