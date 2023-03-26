@@ -1,17 +1,9 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
+const Container = styled.div``;
 const Footer = () => {
-  return (
-    <Container>
-      
-    </Container>
-  );
+  return <Container></Container>;
 };
-
-const Container = styled.div`
-  
-`
-
 
 export default memo(Footer);
