@@ -23,6 +23,5 @@
     "import/newline-after-import": "off", // import문 다음에 빈줄을 사용하지 않음: 불필요한 코드 늘어남으로 제거
     "no-console": "off", // console 사용 허용
     "quotes": "off"// 따옴표를 사용하지 않음: ` 사용 못해서 제거
-
   }
 }
