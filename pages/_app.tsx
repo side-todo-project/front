@@ -16,11 +16,6 @@ queryClient.setDefaultOptions({
   queries: defaultQueryOptions,
 });
 
-// Mock Service Worker start
-if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
-  worker.start();
-}
-
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
