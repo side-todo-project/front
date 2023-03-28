@@ -9,6 +9,7 @@ import {
 } from '@/views/header/MenuButton';
 import LogoIcon from '@/views/header/LogoIcon';
 import { useUserInfo } from '@/hooks/userProvider';
+import TextButton from '../common/TextButton';
 
 const Header = () => {
   const { user } = useUserInfo();
@@ -25,7 +26,7 @@ const Header = () => {
               <HamburgerMenuButton />
             </>
           ) : (
-            <p>로그인</p>
+            <TextButton>로그인</TextButton>
           )}
         </Menu>
       </Box>
