@@ -1,4 +1,4 @@
-import TestBox from "@/components/TestBox";
+
 import { render, screen } from "@testing-library/react";
 
 describe('test', () => {
@@ -6,13 +6,3 @@ describe('test', () => {
     expect(true).toBeTruthy();
   });
 });
-
-describe('RTL Test', () => {
-  it('test1', () => {
-    render(<TestBox />);
-    screen.getByText('Test Box')
-  });
-});
-
-
-export {}

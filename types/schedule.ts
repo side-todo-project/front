@@ -15,3 +15,4 @@ export interface IScheduleItem {
   when: string; // 언제
   what: string; // 무엇을
 };
+
