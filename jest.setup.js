@@ -7,6 +7,11 @@ import '@testing-library/jest-dom/extend-expect'
 
 import { server } from '@/mocks/server';
 
+// Mock Service Worker start
+if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
+  worker.start();
+}
+
 // 모든 테스트 시작 전 실행
 beforeAll(() => server.listen());
 
