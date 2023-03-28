@@ -8,6 +8,8 @@ import Palette from '@/styles/Palette';
 import TextInput from '@/components/common/TextInput';
 import { GetServerSideProps } from 'next';
 import { useUserInfo } from '@/hooks/userProvider';
+import {Container, Grid} from '@material-ui/core';
+
 
 const Mypage = ({ userInfo }) => {
   const { setUser } = useUserInfo();
@@ -19,7 +21,7 @@ const Mypage = ({ userInfo }) => {
   }, [userInfo]);
 
   return (
-    <Container>
+    <ContainerBox>
       {/* 좌측 */}
       <CharacterFlexBox>
         <FlexBox dir="column" justify="space-between" className="title-box">
@@ -56,11 +58,11 @@ const Mypage = ({ userInfo }) => {
           </FlexBox>
         </FlexBox>
       </ScheduleFlexBox>
-    </Container>
+    </ContainerBox>
   );
 };
 
-const Container = styled(FlexBox).attrs({ dir: 'row' })`
+const ContainerBox = styled(FlexBox).attrs({ dir: 'row' })`
   width: 100%;
   height: 43.75rem;
 `;
