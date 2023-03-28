@@ -1,6 +1,6 @@
 import Button from '@/components/common/Button';
 import { FlexBox } from '@/styles/Utils';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import characterFirst from '@/public/assets/header/character-first.svg';
 import Image from 'next/image';
@@ -13,6 +13,7 @@ import {Container, Grid} from '@material-ui/core';
 
 const Mypage = ({ userInfo }) => {
   const { setUser } = useUserInfo();
+  
   // initialize userinfo
   useEffect(() => {
     if(userInfo){
@@ -54,7 +55,9 @@ const Mypage = ({ userInfo }) => {
         <FlexBox dir="row">
           <FlexBox dir="column">
             <p>오늘의 일정이 등록되어 있지 않아요!</p>
-            <Button width={360}>일정 등록하기</Button>
+            <Button width={360} onClick={() => {
+              
+            }}>일정 등록하기</Button>
           </FlexBox>
         </FlexBox>
       </ScheduleFlexBox>

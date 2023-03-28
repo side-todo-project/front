@@ -2,6 +2,11 @@ import { ISchedule, IScheduleItem } from '@/types/schedule';
 import React, { useCallback, useState } from 'react';
 import ScheduleInput from './ScheduleInput';
 
+
+
+/**
+ * 스케줄 등록 컴포넌트
+ */
 interface IProps {
   scheduleData: ISchedule;
 }
@@ -19,4 +24,4 @@ const Schedule = ({ scheduleData }: IProps) => {
   );
 };
 
-export default Schedule;
+export default Schedule;=
