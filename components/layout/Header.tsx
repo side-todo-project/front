@@ -10,9 +10,13 @@ import {
 import LogoIcon from '@/views/header/LogoIcon';
 import { useUserInfo } from '@/hooks/userProvider';
 import TextButton from '../common/TextButton';
+import { useRouter } from 'next/router';
 
 const Header = () => {
   const { user } = useUserInfo();
+  const router = useRouter();
+
+  const onClickLoginButton = () => router.push('/login');
 
   return (
     <Container>
@@ -26,7 +30,7 @@ const Header = () => {
               <HamburgerMenuButton />
             </>
           ) : (
-            <TextButton>로그인</TextButton>
+            <TextButton onClick={onClickLoginButton}>로그인</TextButton>
           )}
         </Menu>
       </Box>
