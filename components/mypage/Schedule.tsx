@@ -24,4 +24,4 @@ const Schedule = ({ scheduleData }: IProps) => {
   );
 };
 
-export default Schedule;=
+export default Schedule;
