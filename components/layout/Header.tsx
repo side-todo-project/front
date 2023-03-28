@@ -1,18 +1,23 @@
 import { FlexBox, layoutMarginStyle } from '@/styles/Utils';
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import todoFriendsLogo from '@/public/assets/header/todo-friends-logo.png';
-import Image from 'next/image';
+
+import {
+  CalendarMenuButton,
+  HamburgerMenuButton,
+  NoticeMenuButton,
+} from '@/views/header/MenuButton';
+import LogoIcon from '@/views/header/LogoIcon';
 
 const Header = () => {
   return (
     <Container>
       <Box>
-        <Logo />
+        <LogoIcon />
         <Menu>
-          <div>A</div>
-          <div>B</div>
-          <div>C</div>
+          <CalendarMenuButton />
+          <NoticeMenuButton />
+          <HamburgerMenuButton />
         </Menu>
       </Box>
     </Container>
@@ -28,11 +33,6 @@ const Container = styled(FlexBox).attrs({ dir: 'row', justify: 'center' })`
 const Box = styled(FlexBox).attrs({ dir: 'row', justify: 'space-between' })`
   ${layoutMarginStyle};
   width: 100%;
-`;
-
-const Logo = styled(Image).attrs({ src: todoFriendsLogo, alt: 'todo-friends-logo', width: 100, height: 100 })`
-  width: 11.19rem;
-  height: 1.13rem;
 `;
 
 const Menu = styled(FlexBox).attrs({ dir: 'row', justify: 'space-between' })`
