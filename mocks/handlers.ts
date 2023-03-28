@@ -30,5 +30,11 @@ export const handlers = [
       "ScheduleOwnerId": 32
     }))
   }),
-  
+  // 테스트용
+  rest.get('/test', (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json({
+      id: 'test-id',
+      name: 'test-name',
+    }))
+  })
 ];

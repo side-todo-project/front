@@ -1,20 +1,15 @@
-import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
+import React from 'react'
 
 const QueryMockTest = () => {
-  const { data, isLoading } = useQuery(['queryMockTest'], () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          id: 'test-id',
-          name: 'test-name',
-        });
-      }, 1000);
-    });
-  });
+  const {data, isLoading} = useQuery(['queryMockTest'], async () => {
+    const res = await axios.get('/test');
+    return res.data;
+  })
 
   if (isLoading) {
-    return <div>loading...</div>;
+    return <div>loading...</div>
   }
 
   return (
@@ -26,7 +21,7 @@ const QueryMockTest = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default QueryMockTest;
+export default QueryMockTest
