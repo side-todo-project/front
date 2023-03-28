@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
-import { useUserInfo } from '@/components/common/userProvider';
+import { useUserInfo } from '@/hooks/userProvider';
 import { storeCookies } from '@/api/server';
 import { ITokens, IUserInfo } from '@/types';
 

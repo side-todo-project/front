@@ -8,16 +8,25 @@ import {
   NoticeMenuButton,
 } from '@/views/header/MenuButton';
 import LogoIcon from '@/views/header/LogoIcon';
+import { useUserInfo } from '@/hooks/userProvider';
 
 const Header = () => {
+  const { user } = useUserInfo();
+
   return (
     <Container>
       <Box>
         <LogoIcon />
         <Menu>
-          <CalendarMenuButton />
-          <NoticeMenuButton />
-          <HamburgerMenuButton />
+          {user ? (
+            <>
+              <CalendarMenuButton />
+              <NoticeMenuButton />
+              <HamburgerMenuButton />
+            </>
+          ) : (
+            <p>로그인</p>
+          )}
         </Menu>
       </Box>
     </Container>
