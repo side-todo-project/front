@@ -1,21 +1,31 @@
 import Button from '@/components/common/Button';
 import { FlexBox } from '@/styles/Utils';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import characterFirst from '@/public/assets/header/character-first.svg';
 import Image from 'next/image';
 import Palette from '@/styles/Palette';
 import TextInput from '@/components/common/TextInput';
+import { GetServerSideProps } from 'next';
+import { useUserInfo } from '@/hooks/userProvider';
 
-const mypage = () => {
+const Mypage = ({ userInfo }) => {
+  const { setUser } = useUserInfo();
+  // initialize userinfo
+  useEffect(() => {
+    if(userInfo){
+      setUser(userInfo);
+    }
+  }, [userInfo]);
+
   return (
     <Container>
       {/* 좌측 */}
       <CharacterFlexBox>
         <FlexBox dir="column" justify="space-between" className="title-box">
           <FlexBox dir="row">
-          <p>순빵999</p>
-          <p>시작한지 1일쩨</p>
+            <p>순빵999</p>
+            <p>시작한지 1일쩨</p>
           </FlexBox>
           <FlexBox dir="row" className="introduction-box">
             <TextInput />
@@ -78,4 +88,16 @@ const ScheduleFlexBox = styled(FlexBox).attrs({ dir: 'column' })`
   background-color: ${Palette.White};
 `;
 
-export default mypage;
+export default Mypage;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  // 1. 쿠키에서 토큰 획득
+  // 2. 토큰 사용하여 유저정보 획득
+  // 3. 유저정보 전달
+  const userInfo = {};
+  return {
+    props: {
+      userInfo,
+    },
+  };
+};
