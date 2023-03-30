@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 const BASEURL = 'http://localhost:3000';
 
-export default function nickname() {
+export default function Nickname() {
   const [nickname, setNickname] = React.useState('');
 
   const handleInput = (e) => {

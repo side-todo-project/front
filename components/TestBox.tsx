@@ -1,4 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+`;
+
+const Box = styled.p`
+  font-size: 50px;
+  color: orange;
+`;
 
 const TestBox = () => {
   return (
@@ -7,14 +16,5 @@ const TestBox = () => {
     </Container>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-`
-
-const Box = styled.p`
-  font-size: 50px;
-  color: orange;
-`
 
 export default TestBox;
