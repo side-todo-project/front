@@ -8,7 +8,7 @@ import Palette from '@/styles/Palette';
 import TextInput from '@/components/common/TextInput';
 import { GetServerSideProps } from 'next';
 import { useUserInfo } from '@/hooks/userProvider';
-import RegisterSchedule from '@/components/mypage/RegisterSchedule';
+import RegisterSchedule from '@/components/mypage/ConfigSchedule';
 import { ISchedule } from '@/types/schedule';
 import EmptySchedule from '@/components/mypage/EmptySchedule';
 import API from '@/api/API';

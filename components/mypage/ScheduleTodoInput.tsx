@@ -12,7 +12,7 @@ interface IProps {
   onRemove: () => void;
 }
 
-const ScheduleInput = ({ when, what, onAdd, onRemove }: IProps) => {
+const ScheduleTodoInput = ({ when, what, onAdd, onRemove }: IProps) => {
   const [whenInput, setWhenInput] = useState(when || '');
   const [whatInput, setWhatInput] = useState(what || '');
 
@@ -26,4 +26,4 @@ const ScheduleInput = ({ when, what, onAdd, onRemove }: IProps) => {
   );
 };
 
-export default memo(ScheduleInput);
+export default memo(ScheduleTodoInput);

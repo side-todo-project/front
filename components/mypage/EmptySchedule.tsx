@@ -2,6 +2,7 @@ import { FlexBox } from '@/styles/Utils';
 import React from 'react';
 import Button from '@/components/common/Button';
 
+// 저장된 일정 없을때
 const EmptySchedule = ({ onClick }) => {
   return (
     <FlexBox dir="row">

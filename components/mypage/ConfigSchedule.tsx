@@ -1,13 +1,11 @@
 import { ISchedule, IScheduleCreateForm, IScheduleItem } from '@/types/schedule';
 import React, { useCallback, useEffect, useState } from 'react';
 import Button from '@/components/common/Button';
-import ScheduleInput from '@/components/mypage/ScheduleInput';
+import ScheduleTodoInput from '@/components/mypage/ScheduleTodoInput';
 import TagInput from './TagInput';
 import { createSchedule } from '@/api/client';
 
-/**
- * 스케줄 등록 컴포넌트
- */
+
 const defaultMockData: IScheduleCreateForm = {
   scheduleDate: '2022-03-01',
   schedule: [
@@ -19,8 +17,8 @@ const defaultMockData: IScheduleCreateForm = {
   isPrivate: true,
   tags: ['태그1', '태그2'],
 };
-
-const RegisterSchedule = () => {
+// 스케줄 생성/수정
+const ConfigSchedule = () => {
   const [form, setForm] = useState<IScheduleCreateForm>(defaultMockData);
 
   const onAdd = () => {
@@ -52,7 +50,7 @@ const RegisterSchedule = () => {
       <div>
         <p>add todo</p>
         {form.schedule.map((item, index) => (
-          <ScheduleInput
+          <ScheduleTodoInput
             key={`${item.when}-${item.what}`}
             when={item.when}
             what={item.what}
@@ -69,4 +67,4 @@ const RegisterSchedule = () => {
   );
 };
 
-export default RegisterSchedule;
+export default ConfigSchedule;
