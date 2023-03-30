@@ -8,16 +8,21 @@ import Palette from '@/styles/Palette';
 import TextInput from '@/components/common/TextInput';
 import { GetServerSideProps } from 'next';
 import { useUserInfo } from '@/hooks/userProvider';
-import {Container, Grid} from '@material-ui/core';
+import RegisterSchedule from '@/components/mypage/RegisterSchedule';
+import { ISchedule } from '@/types/schedule';
+import EmptySchedule from '@/components/mypage/EmptySchedule';
+import API from '@/api/API';
 
-
-const Mypage = ({ userInfo }) => {
+const Mypage = ({ userInfo, Authentication }) => {
   const { setUser } = useUserInfo();
-  
+  const [registerSchedule, setRegisterSchedule] = useState(false);
+
   // initialize userinfo
   useEffect(() => {
-    if(userInfo){
+    if (userInfo) {
       setUser(userInfo);
+      console.log(Authentication);
+      API.defaults.headers.common['access'] = `${Authentication}`;
     }
   }, [userInfo]);
 
@@ -52,14 +57,17 @@ const Mypage = ({ userInfo }) => {
           <div>토</div>
           <div>일</div>
         </FlexBox>
-        <FlexBox dir="row">
-          <FlexBox dir="column">
-            <p>오늘의 일정이 등록되어 있지 않아요!</p>
-            <Button width={360} onClick={() => {
-              
-            }}>일정 등록하기</Button>
-          </FlexBox>
-        </FlexBox>
+        <div>
+          {registerSchedule ? (
+            <RegisterSchedule />
+          ) : (
+            <EmptySchedule
+              onClick={() => {
+                setRegisterSchedule(true);
+              }}
+            />
+          )}
+        </div>
       </ScheduleFlexBox>
     </ContainerBox>
   );
@@ -100,9 +108,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   // 2. 토큰 사용하여 유저정보 획득
   // 3. 유저정보 전달
   const userInfo = {};
+  const { req } = context;
+  const { cookies } = req;
+  const { Authentication } = cookies;
+
   return {
     props: {
       userInfo,
+      Authentication
     },
   };
 };

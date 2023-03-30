@@ -14,5 +14,9 @@ export interface ISchedule {
 export interface IScheduleItem {
   when: string; // 언제
   what: string; // 무엇을
-};
+}
+
+// 스케줄 입력 form
+export interface IScheduleCreateForm
+  extends Pick<ISchedule, 'scheduleDate' | 'isPrivate' | 'schedule' | 'tags'> {}
 

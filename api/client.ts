@@ -1,4 +1,7 @@
+import { IScheduleCreateForm } from "@/types/schedule";
+import axios from "axios";
 import API from "./API";
+import AuthAPI from "./AuthAPI";
 
 
 export const setNickname = (client) => { 
@@ -8,12 +11,23 @@ export const setNickname = (client) => {
 }
 
 
+// refresh
+export const refreshAccessToken = async () => {
+  const storedCookies = await axios.get('/api/cookie');
+  const { Refresh } = storedCookies.data;
+  const res = await AuthAPI.post('/refresh', null, {
+    headers: {
+      // 'access': Refresh
+    }
+  });
 
-
+  return res.data;
+}
 
 // schedule
+
 // 일정 생성하기
-export const createSchedule = (schedule) => {
+export const createSchedule = (schedule: IScheduleCreateForm) => {
   return API.post('/schedule', schedule);
 };
 
