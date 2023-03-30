@@ -9,8 +9,8 @@ import {
 } from '@/views/header/MenuButton';
 import LogoIcon from '@/views/header/LogoIcon';
 import { useUserInfo } from '@/hooks/userProvider';
-import TextButton from '../common/TextButton';
 import { useRouter } from 'next/router';
+import TextButton from '../common/TextButton';
 
 const Container = styled(FlexBox).attrs({ dir: 'row', justify: 'center' })`
   background-color: ${(p) => p.theme.White};
@@ -21,16 +21,6 @@ const Container = styled(FlexBox).attrs({ dir: 'row', justify: 'center' })`
 const Box = styled(FlexBox).attrs({ dir: 'row', justify: 'space-between' })`
   ${layoutMarginStyle};
   width: 100%;
-`;
-
-const Logo = styled(Image).attrs({
-  src: todoFriendsLogo,
-  alt: 'todo-friends-logo',
-  width: 100,
-  height: 100,
-})`
-  width: 11.19rem;
-  height: 1.13rem;
 `;
 
 const Menu = styled(FlexBox).attrs({ dir: 'row', justify: 'space-between' })`

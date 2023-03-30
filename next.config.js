@@ -13,9 +13,9 @@ const nextConfig = {
       {
         source: '/auth/:path*',
         destination: 'http://localhost:3000/auth/:path*',
-      }
-    ]
-  }
-}
+      },
+    ];
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
