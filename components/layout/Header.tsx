@@ -1,8 +1,13 @@
 import { FlexBox, layoutMarginStyle } from '@/styles/Utils';
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import todoFriendsLogo from '@/public/assets/header/todo-friends-logo.png';
-import Image from 'next/image';
+
+import {
+  CalendarMenuButton,
+  HamburgerMenuButton,
+  NoticeMenuButton,
+} from '@/views/header/MenuButton';
+import LogoIcon from '@/views/header/LogoIcon';
 
 const Container = styled(FlexBox).attrs({ dir: 'row', justify: 'center' })`
   background-color: ${(p) => p.theme.White};
@@ -34,11 +39,11 @@ const Header = () => {
   return (
     <Container>
       <Box>
-        <Logo />
+        <LogoIcon />
         <Menu>
-          <div>A</div>
-          <div>B</div>
-          <div>C</div>
+          <CalendarMenuButton />
+          <NoticeMenuButton />
+          <HamburgerMenuButton />
         </Menu>
       </Box>
     </Container>
