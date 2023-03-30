@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 7; // 7일
-
+/* eslint-disable */
 /**
  * 쿠키 저장, 획득, 삭제 API
  * @param req

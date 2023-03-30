@@ -4,16 +4,6 @@ import React from 'react';
 import styled from 'styled-components';
 const BASEURL = 'http://localhost:3000';
 
-const Login = () => {
-  return (
-    <Container>
-      <KakaoLoginLink href={`${BASEURL}/auth/login/kakao`}>카카오 로그인</KakaoLoginLink>
-      <NaverLoginLink href={`${BASEURL}/auth/login/naver`}>네이버 로그인</NaverLoginLink>
-      <GoogleLoginLink href={`${BASEURL}/auth/login/google`}>구글 로그인</GoogleLoginLink>
-    </Container>
-  );
-};
-
 const KakaoLoginLink = styled.a`
   display: flex;
   justify-content: center;
@@ -39,5 +29,21 @@ const Container = styled(FlexBox).attrs({ dir: 'column', justify: 'center' })`
   border-radius: 20px;
   margin: 0 auto;
 `;
+
+const Login = () => {
+  return (
+    <div>
+      <KakaoLoginLink href={`${BASEURL}/auth/login/kakao`}>
+        <div>Login With Kakao</div>
+      </KakaoLoginLink>
+      <NaverLoginLink href={`${BASEURL}/auth/login/naver`}>
+        <div>Login With Naver</div>
+      </NaverLoginLink>
+      <GoogleLoginLink href={`${BASEURL}/auth/login/google`}>
+        <div>Login With Google</div>
+      </GoogleLoginLink>
+    </div>
+  );
+};
 
 export default Login;

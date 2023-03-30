@@ -1,7 +1,7 @@
 import Typo from '@/styles/Typo';
 import styled from 'styled-components';
 
-const Button = styled.button<{width?: string}>`
+const Button = styled.button<{ width?: number }>`
   padding: 16px;
   gap: 8px;
   flex: none;
@@ -9,7 +9,7 @@ const Button = styled.button<{width?: string}>`
   flex-grow: 0;
   height: 44px;
   cursor: pointer;
-  ${p => p.width && `width: ${p.width}`};
+  ${(p) => p.width && `width: ${p.width}px;`};
 
   /* Primary/primary-200 */
   border: none;

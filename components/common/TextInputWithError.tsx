@@ -2,14 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import TextInput from './TextInput';
 
-const TextInputWithError = ({ isError, errorText, ...props }) => {
-  return (
-    <Container>
-      <TextInput {...props} />
-      {isError && <ErrorText>{errorText}</ErrorText>}
-    </Container>
-  );
-};
+interface IProps extends React.ButtonHTMLAttributes<HTMLInputElement> {
+  isError: boolean;
+  errorText: string;
+}
 
 const Container = styled.div`
   height: 60px;
@@ -21,5 +17,14 @@ const ErrorText = styled.p`
   line-height: 16px;
   color: ${(p) => p.theme.Error};
 `;
+
+const TextInputWithError = ({ isError, errorText, ...props }: IProps) => {
+  return (
+    <Container>
+      <TextInput {...props} />
+      {isError && <ErrorText>{errorText}</ErrorText>}
+    </Container>
+  );
+};
 
 export default TextInputWithError;

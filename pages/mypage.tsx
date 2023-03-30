@@ -14,6 +14,18 @@ const Mypage = ({ userInfo, Authentication }) => {
   const { setUser } = useUserInfo();
   const [registerSchedule, setRegisterSchedule] = useState(false);
 
+  const ContainerBox = styled(FlexBox).attrs({ dir: 'row' })`
+    width: 100%;
+    height: 43.75rem;
+  `;
+
+  const ScheduleFlexBox = styled(FlexBox).attrs({ dir: 'column' })`
+    width: 50%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: ${Palette.White};
+  `;
+
   // initialize userinfo
   useEffect(() => {
     if (userInfo) {
@@ -45,18 +57,6 @@ const Mypage = ({ userInfo, Authentication }) => {
     </ContainerBox>
   );
 };
-
-const ContainerBox = styled(FlexBox).attrs({ dir: 'row' })`
-  width: 100%;
-  height: 43.75rem;
-`;
-
-const ScheduleFlexBox = styled(FlexBox).attrs({ dir: 'column' })`
-  width: 50%;
-  height: 100%;
-  border-radius: 20px;
-  background-color: ${Palette.White};
-`;
 
 export default Mypage;
 
