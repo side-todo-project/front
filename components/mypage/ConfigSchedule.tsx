@@ -1,10 +1,9 @@
-import { ISchedule, IScheduleCreateForm, IScheduleItem } from '@/types/schedule';
-import React, { useCallback, useEffect, useState } from 'react';
+import { IScheduleCreateForm } from '@/types/schedule';
+import React, { useState } from 'react';
 import Button from '@/components/common/Button';
 import ScheduleTodoInput from '@/components/mypage/ScheduleTodoInput';
-import TagInput from './TagInput';
 import { createSchedule } from '@/api/client';
-
+import TagInput from './TagInput';
 
 const defaultMockData: IScheduleCreateForm = {
   scheduleDate: '2022-03-01',
@@ -38,7 +37,6 @@ const ConfigSchedule = () => {
   const onSubmit = async () => {
     try {
       await createSchedule(form);
-      
     } catch (e) {
       console.error(e);
     }
@@ -49,7 +47,7 @@ const ConfigSchedule = () => {
       <div data-testid="date">{form.scheduleDate} 나의 일정</div>
       <div>
         <p>add todo</p>
-        {form.schedule.map((item, index) => (
+        {form.schedule.map((item) => (
           <ScheduleTodoInput
             key={`${item.when}-${item.what}`}
             when={item.when}
@@ -62,7 +60,9 @@ const ConfigSchedule = () => {
       <div>
         <TagInput tags={form.tags} />
       </div>
-      <Button width="100%" onClick={onSubmit}>일정 등록하기</Button>
+      <Button width="100%" onClick={onSubmit}>
+        일정 등록하기
+      </Button>
     </div>
   );
 };

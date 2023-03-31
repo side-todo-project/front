@@ -31,7 +31,7 @@ const Mypage = ({ userInfo, Authentication }) => {
     if (userInfo) {
       setUser(userInfo);
       console.log(Authentication);
-      API.defaults.headers.common['access'] = `${Authentication}`;
+      API.defaults.headers.common.access = `${Authentication}`;
     }
   }, [userInfo]);
 
