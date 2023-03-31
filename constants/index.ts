@@ -5,4 +5,3 @@ export const defaultQueryOptions: UseQueryOptions = {
   refetchOnWindowFocus: false, // 창이 focus될때마다 refetch 여부
   refetchInterval: false, // 주기적으로 refetch 여부
 };
-

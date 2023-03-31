@@ -43,7 +43,7 @@ const ConfigSchedule = () => {
   };
 
   return (
-    <div>
+    <div data-testid="config-schedule-form">
       <div data-testid="date">{form.scheduleDate} 나의 일정</div>
       <div>
         <p>add todo</p>
@@ -60,7 +60,7 @@ const ConfigSchedule = () => {
       <div>
         <TagInput tags={form.tags} />
       </div>
-      <Button width="100%" onClick={onSubmit}>
+      <Button data-testid="config-submit-btn" width="100%" onClick={onSubmit}>
         일정 등록하기
       </Button>
     </div>

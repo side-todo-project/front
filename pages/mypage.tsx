@@ -6,25 +6,25 @@ import { GetServerSideProps } from 'next';
 import { useUserInfo } from '@/hooks/userProvider';
 import RegisterSchedule from '@/components/mypage/ConfigSchedule';
 import EmptySchedule from '@/components/mypage/EmptySchedule';
-
+import API from '@/api/API';
 import UserStatusView from '@/components/mypage/UserInfo';
 import DateView from '@/views/mypage/DateView';
+
+const ContainerBox = styled(FlexBox).attrs({ dir: 'row' })`
+  width: 100%;
+  height: 43.75rem;
+`;
+
+const ScheduleFlexBox = styled(FlexBox).attrs({ dir: 'column' })`
+  width: 50%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: ${Palette.White};
+`;
 
 const Mypage = ({ userInfo }) => {
   const { setUser } = useUserInfo();
   const [registerSchedule, setRegisterSchedule] = useState(false);
-
-  const ContainerBox = styled(FlexBox).attrs({ dir: 'row' })`
-    width: 100%;
-    height: 43.75rem;
-  `;
-
-  const ScheduleFlexBox = styled(FlexBox).attrs({ dir: 'column' })`
-    width: 50%;
-    height: 100%;
-    border-radius: 20px;
-    background-color: ${Palette.White};
-  `;
 
   // initialize userinfo
   useEffect(() => {
@@ -65,12 +65,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const userInfo = {};
   const { req } = context;
   const { cookies } = req;
-  const { Authentication } = cookies;
 
   return {
     props: {
       userInfo,
-      Authentication,
     },
   };
 };
