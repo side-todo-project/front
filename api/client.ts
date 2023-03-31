@@ -8,7 +8,7 @@ export const setNickname = (client) => {
   nicknameEl.textContent = nickname;
 };
 
-// schedule
+/* -------------------------------- Schedule -------------------------------- */
 
 // 일정 생성하기
 export const createSchedule = (schedule: IScheduleCreateForm) => {
@@ -33,4 +33,11 @@ export const checkSchedule = (scheduleId, index) => {
 // 공개된 최신 일정불러오기
 export const fetchLatestSchedule = () => {
   return API.get('/schedule/latest');
+};
+
+/* ---------------------------------- User ---------------------------------- */
+
+// 유저 정보 가져오기
+export const fetchUserInfo = () => {
+  // return API.get(`/user/${userId}`);
 };

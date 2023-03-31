@@ -1,3 +1,4 @@
+import { ITokens } from '@/types';
 import axios, { AxiosError } from 'axios';
 
 /**
@@ -6,6 +7,10 @@ import axios, { AxiosError } from 'axios';
 const API = axios.create({
   baseURL: process.env.NEXT_PUBLIC_SERVER_API_BASEURL,
 });
+
+export const setDefaultHeader = (token: ITokens['accessToken']) => {
+  API.defaults.headers.common.Authentication = token;
+};
 
 const refreshAccessToken = async () => {
   const apiRes = await axios.get('/api/auth/refresh');
