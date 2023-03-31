@@ -1,21 +1,15 @@
 import axios, { AxiosError } from 'axios';
-import AuthAPI from './AuthAPI';
-// get env
 
+/**
+ * API 호출용 axios 인스턴스
+ */
 const API = axios.create({
   baseURL: process.env.NEXT_PUBLIC_SERVER_API_BASEURL,
 });
 
 const refreshAccessToken = async () => {
-  const storedCookies = await axios.get('/api/cookie');
-  const { Refresh } = storedCookies.data;
-  const res = await AuthAPI.post('/refresh', null, {
-    headers: {
-      // 'access': Refresh
-    },
-  });
-
-  return res.data;
+  const apiRes = await axios.get('/api/auth/refresh');
+  return apiRes.status;
 };
 
 // Add a request interceptor
@@ -42,7 +36,12 @@ API.interceptors.response.use(
     // Do something with response error
 
     if (error.response.status === 401) {
-      const res = await refreshAccessToken();
+      // 토큰갱신 실패시 로그인페이지로
+      const status = await refreshAccessToken();
+      if (status !== 200) {
+        alert('다시 로그인 해주세요');
+        window.location.href = '/login';
+      }
     }
 
     return Promise.reject(error);

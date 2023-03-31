@@ -20,8 +20,6 @@ const LoginSuccess = ({ query }: IProps) => {
   useEffect(() => {
     (async () => {
       const { accessToken, refreshToken, ...userInfo } = query;
-      // set tokens
-      await storeCookies({ accessToken, refreshToken });
       // set user info
       setUser(userInfo);
       // if new user, go to nickname page
@@ -35,10 +33,14 @@ const LoginSuccess = ({ query }: IProps) => {
 export default LoginSuccess;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { query } = context;
+  const { req } = context;
+  const { cookies } = req;
+  if (cookies) {
+    
+  }
   return {
     props: {
-      query,
+      
     },
   };
 };
