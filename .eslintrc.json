@@ -24,7 +24,10 @@
     "no-console": "off", // console 사용 허용
     "quotes": "off", // 따옴표를 사용하지 않음: ` 사용 못해서 제거
     // 테스트 또는 개발환경을 구성하는 파일에서는 devDependency 사용을 허용
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.test.tsx"] }]
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.test.tsx"] }],
+    "import/prefer-default-export": "off" // export defualt 강제: 필요없음
   },
   "ignorePatterns": ["nickname.tsx"] // 임시로 무시
 }
+
+

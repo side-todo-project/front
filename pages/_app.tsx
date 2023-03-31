@@ -8,7 +8,6 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import '@/styles/index.css';
-import { worker } from '@/mocks/worker';
 
 const queryClient = new QueryClient();
 queryClient.setDefaultOptions({

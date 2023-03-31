@@ -8,7 +8,7 @@ describe('Schedule', () => {
     const { getByText } = render(
       <UnitTestWrapper>
         <Mypage />
-      </UnitTestWrapper>
+      </UnitTestWrapper>,
     );
     expect(getByText('오늘의 일정이 등록되어 있지 않아요!')).toBeInTheDocument();
   });
@@ -17,7 +17,7 @@ describe('Schedule', () => {
     const { getByText } = render(
       <UnitTestWrapper>
         <Mypage />
-      </UnitTestWrapper>
+      </UnitTestWrapper>,
     );
     const addButton = screen.getByText('일정 등록하기');
     fireEvent.click(addButton);
@@ -29,7 +29,7 @@ describe('Schedule', () => {
     render(
       <UnitTestWrapper>
         <QueryMockTest />
-      </UnitTestWrapper>
+      </UnitTestWrapper>,
     );
 
     expect(await screen.findByText('test-id')).toBeInTheDocument();

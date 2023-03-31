@@ -1,5 +1,3 @@
-import Palette from '@/styles/Palette';
-import { FlexBox } from '@/styles/Utils';
 import React from 'react';
 import styled from 'styled-components';
 const BASEURL = 'http://localhost:3000';
@@ -20,14 +18,6 @@ const NaverLoginLink = styled(KakaoLoginLink)`
 
 const GoogleLoginLink = styled(KakaoLoginLink)`
   background-color: #4285f4;
-`;
-
-const Container = styled(FlexBox).attrs({ dir: 'column', justify: 'center' })`
-  width: 640px;
-  height: 650px;
-  background-color: ${Palette.White};
-  border-radius: 20px;
-  margin: 0 auto;
 `;
 
 const Login = () => {

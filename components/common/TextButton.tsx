@@ -1,5 +1,4 @@
 import Palette from '@/styles/Palette';
-import Typo from '@/styles/Typo';
 import styled from 'styled-components';
 import Button from './Button';
 
