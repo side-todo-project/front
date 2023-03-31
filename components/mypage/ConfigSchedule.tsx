@@ -9,8 +9,8 @@ const defaultMockData: IScheduleCreateForm = {
   scheduleDate: '2022-03-01',
   schedule: [
     {
-      when: '',
-      what: '',
+      when: '일어니서',
+      what: '씻기',
     },
   ],
   isPrivate: true,

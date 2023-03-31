@@ -6,11 +6,11 @@ import { GetServerSideProps } from 'next';
 import { useUserInfo } from '@/hooks/userProvider';
 import RegisterSchedule from '@/components/mypage/ConfigSchedule';
 import EmptySchedule from '@/components/mypage/EmptySchedule';
-import API from '@/api/API';
+
 import UserStatusView from '@/components/mypage/UserInfo';
 import DateView from '@/views/mypage/DateView';
 
-const Mypage = ({ userInfo, Authentication }) => {
+const Mypage = ({ userInfo }) => {
   const { setUser } = useUserInfo();
   const [registerSchedule, setRegisterSchedule] = useState(false);
 
@@ -30,8 +30,6 @@ const Mypage = ({ userInfo, Authentication }) => {
   useEffect(() => {
     if (userInfo) {
       setUser(userInfo);
-      console.log(Authentication);
-      API.defaults.headers.common.access = `${Authentication}`;
     }
   }, [userInfo]);
 
