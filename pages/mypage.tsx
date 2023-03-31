@@ -22,16 +22,8 @@ const ScheduleFlexBox = styled(FlexBox).attrs({ dir: 'column' })`
   background-color: ${Palette.White};
 `;
 
-const Mypage = ({ userInfo }) => {
-  const { setUser } = useUserInfo();
+const Mypage = () => {
   const [registerSchedule, setRegisterSchedule] = useState(false);
-
-  // initialize userinfo
-  useEffect(() => {
-    if (userInfo) {
-      setUser(userInfo);
-    }
-  }, [userInfo]);
 
   return (
     <ContainerBox>
