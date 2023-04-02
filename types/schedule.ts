@@ -1,3 +1,10 @@
+// 일정 1개 타입
+export interface IScheduleItem {
+  key?: number; // key
+  when: string; // 언제
+  what: string; // 무엇을
+}
+
 // 일정목록 데이터
 export interface ISchedule {
   id: number; // 일정 아이디
@@ -10,14 +17,6 @@ export interface ISchedule {
   ScheduleOwnerId: number; // 일정 소유자 아이디
 }
 
-// 일정 1개 타입
-export interface IScheduleItem {
-  key?: number; // key
-  when: string; // 언제
-  what: string; // 무엇을
-}
-
 // 스케줄 입력 form
 export interface IScheduleCreateForm
   extends Pick<ISchedule, 'scheduleDate' | 'isPrivate' | 'schedule' | 'tags'> {}
-
