@@ -1,14 +1,13 @@
 import { FlexBox } from '@/styles/Utils';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import Palette from '@/styles/Palette';
 import { GetServerSideProps } from 'next';
-import { useUserInfo } from '@/hooks/userProvider';
-import RegisterSchedule from '@/components/mypage/ConfigSchedule';
 import EmptySchedule from '@/components/mypage/EmptySchedule';
-import API from '@/api/API';
 import UserStatusView from '@/components/mypage/UserInfo';
 import DateView from '@/views/mypage/DateView';
+import useScheduleQuery from '@/hooks/query/useScheduleQuery';
+import RegisteredSchedule from '@/components/mypage/Schedule';
 
 const ContainerBox = styled(FlexBox).attrs({ dir: 'row' })`
   width: 100%;
@@ -23,8 +22,8 @@ const ScheduleFlexBox = styled(FlexBox).attrs({ dir: 'column' })`
 `;
 
 const Mypage = () => {
-  const [registerSchedule, setRegisterSchedule] = useState(false);
-
+  const { data, isLoading } = useScheduleQuery();
+  const isEmpty = useMemo(() => data?.length === 0, [data]);
   return (
     <ContainerBox>
       {/* 좌측 */}
@@ -32,17 +31,7 @@ const Mypage = () => {
       {/* 우측 */}
       <ScheduleFlexBox>
         <DateView />
-        <div>
-          {registerSchedule ? (
-            <RegisterSchedule />
-          ) : (
-            <EmptySchedule
-              onClick={() => {
-                setRegisterSchedule(true);
-              }}
-            />
-          )}
-        </div>
+        <div>{isEmpty ? <RegisteredSchedule /> : <EmptySchedule />}</div>
       </ScheduleFlexBox>
     </ContainerBox>
   );
