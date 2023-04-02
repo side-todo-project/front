@@ -12,7 +12,9 @@ export const setNickname = (client) => {
 
 // 일정 생성하기
 export const createSchedule = (schedule: IScheduleCreateForm) => {
-  return API.post('/schedule', schedule);
+  return API.post('/schedule', schedule, {
+    headers: {},
+  });
 };
 
 // 일정 가져오기
@@ -39,5 +41,7 @@ export const fetchLatestSchedule = () => {
 
 // 유저 정보 가져오기
 export const fetchUserInfo = () => {
-  // return API.get(`/user/${userId}`);
+  return API.get(`/user`, {
+    headers: {},
+  });
 };

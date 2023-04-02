@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
 import { useUserInfo } from '@/hooks/userProvider';
-import { ITokens, IUserInfo } from '@/types';
-import API, { setDefaultHeader } from '@/api/API';
+import { IUserInfo } from '@/types';
 import { fetchUserInfo } from '@/api/client';
 
 /**
@@ -37,7 +36,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { cookies } = req;
   if (cookies) {
     // 2. header 추가
-    setDefaultHeader(cookies.access);
     // 1. 유저정보 획득
     const res = await fetchUserInfo();
   }

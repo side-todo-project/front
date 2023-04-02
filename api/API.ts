@@ -1,19 +1,16 @@
 import { ITokens } from '@/types';
 import axios, { AxiosError } from 'axios';
+import AuthAPI from './AuthAPI';
 
 /**
  * API 호출용 axios 인스턴스
  */
 const API = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_SERVER_API_BASEURL,
+  baseURL: '/api',
 });
 
-export const setDefaultHeader = (token: ITokens['accessToken']) => {
-  API.defaults.headers.common.Authentication = token;
-};
-
 const refreshAccessToken = async () => {
-  const apiRes = await axios.get('/api/auth/refresh');
+  const apiRes = await AuthAPI.get('/refresh');
   return apiRes.status;
 };
 

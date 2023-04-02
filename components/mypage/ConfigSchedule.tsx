@@ -41,7 +41,7 @@ const ConfigSchedule = () => {
       console.error(e);
     }
   };
-
+  // todo 키는 랜덤해시 생성하여 사용
   return (
     <div data-testid="config-schedule-form">
       <div data-testid="date">{form.scheduleDate} 나의 일정</div>
