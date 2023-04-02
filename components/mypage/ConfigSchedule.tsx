@@ -1,24 +1,34 @@
+import { random } from 'lodash';
 import { IScheduleCreateForm } from '@/types/schedule';
 import React, { useState } from 'react';
 import Button from '@/components/common/Button';
-import ScheduleTodoInput from '@/components/mypage/ScheduleTodoInput';
 import { createSchedule } from '@/api/client';
-import TagInput from './TagInput';
+import styled from 'styled-components';
+import { FlexBox } from '@/styles/Utils';
+import TagInput from '@/components/mypage/TagInput';
 
-const defaultMockData: IScheduleCreateForm = {
-  scheduleDate: '2022-03-01',
-  schedule: [
-    {
-      when: '일어니서',
-      what: '씻기',
-    },
-  ],
-  isPrivate: true,
-  tags: ['태그1', '태그2'],
+// create key
+const createTodoKey = () => {
+  return random(1000, 9999);
 };
+
+/* ---------------------------------- 임시 추가 --------------------------------- */
+const WhenInput = styled.input``;
+
+const WhatInput = styled.input``;
+
+interface IProps {
+  initialData: IScheduleCreateForm;
+}
+
 // 스케줄 생성/수정
-const ConfigSchedule = () => {
-  const [form, setForm] = useState<IScheduleCreateForm>(defaultMockData);
+const ConfigSchedule = ({ initialData }: IProps) => {
+  const [form, setForm] = useState<IScheduleCreateForm>(() => ({
+    ...initialData,
+    schedule: initialData.schedule.map((item) => {
+      return { ...item, key: createTodoKey() };
+    }),
+  }));
 
   const onAdd = () => {
     setForm({
@@ -48,13 +58,12 @@ const ConfigSchedule = () => {
       <div>
         <p>add todo</p>
         {form.schedule.map((item) => (
-          <ScheduleTodoInput
-            key={`${item.when}-${item.what}`}
-            when={item.when}
-            what={item.what}
-            onAdd={onAdd}
-            onRemove={onRemove}
-          />
+          <FlexBox dir="column" key={item.key}>
+            <WhenInput value={item.when} />
+            <WhatInput value={item.what} />
+            <Button onClick={onAdd}>add</Button>
+            <Button onClick={onRemove}>delete</Button>
+          </FlexBox>
         ))}
       </div>
       <div>

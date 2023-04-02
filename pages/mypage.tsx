@@ -7,7 +7,7 @@ import EmptySchedule from '@/components/mypage/EmptySchedule';
 import UserStatusView from '@/components/mypage/UserInfo';
 import DateView from '@/views/mypage/DateView';
 import useScheduleQuery from '@/hooks/query/useScheduleQuery';
-import RegisteredSchedule from '@/components/mypage/Schedule';
+import Schedule from '@/components/mypage/Schedule';
 
 const ContainerBox = styled(FlexBox).attrs({ dir: 'row' })`
   width: 100%;
@@ -31,7 +31,7 @@ const Mypage = () => {
       {/* 우측 */}
       <ScheduleFlexBox>
         <DateView />
-        <div>{isEmpty ? <RegisteredSchedule /> : <EmptySchedule />}</div>
+        <div>{isEmpty ? <Schedule data={data} /> : <EmptySchedule />}</div>
       </ScheduleFlexBox>
     </ContainerBox>
   );

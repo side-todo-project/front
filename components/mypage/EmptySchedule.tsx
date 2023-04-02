@@ -1,7 +1,21 @@
 import { FlexBox } from '@/styles/Utils';
 import Button from '@/components/common/Button';
 import React, { useState } from 'react';
+import { IScheduleCreateForm } from '@/types/schedule';
 import ConfigSchedule from './ConfigSchedule';
+
+const initialData: IScheduleCreateForm = {
+  scheduleDate: '2022-03-01',
+  schedule: [
+    {
+      when: '일어니서',
+      what: '씻기',
+    },
+  ],
+  isPrivate: true,
+  tags: ['태그1', '태그2'],
+};
+
 
 // 저장된 일정 없을때
 const EmptySchedule = () => {
@@ -11,7 +25,7 @@ const EmptySchedule = () => {
     setIsConfigMode(true);
   };
 
-  if (isConfigMode) return <ConfigSchedule />;
+  if (isConfigMode) return <ConfigSchedule initialData={initialData} />;
 
   return (
     <FlexBox dir="row">

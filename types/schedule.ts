@@ -12,6 +12,7 @@ export interface ISchedule {
 
 // 일정 1개 타입
 export interface IScheduleItem {
+  key?: number; // key
   when: string; // 언제
   what: string; // 무엇을
 }

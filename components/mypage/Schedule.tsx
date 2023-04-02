@@ -5,13 +5,13 @@ import ConfigSchedule from './ConfigSchedule';
 /**
  * 등록된 일정
  */
-const Schedule = () => {
+const Schedule = ({data}) => {
   const [isConfigMode, setIsConfigMode] = useState(false);
   const onClickToConfig = () => {
     setIsConfigMode(true);
   };
 
-  if (isConfigMode) return <ConfigSchedule />;
+  if (isConfigMode) return <ConfigSchedule initialData={data}/>;
 
   return (
     <div>
