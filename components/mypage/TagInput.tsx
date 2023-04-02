@@ -1,4 +1,5 @@
 import React from 'react';
+import TextInput from '../common/TextInput';
 
 const TagInput = ({ tags }) => {
   const tagValue = tags.join('');
@@ -6,7 +7,7 @@ const TagInput = ({ tags }) => {
   return (
     <div>
       <p>tag</p>
-      <input type="text" value={tagValue} onChange={() => {}} />
+      <TextInput type="text" value={tagValue} onChange={() => {}} />
     </div>
   );
 };

@@ -33,14 +33,14 @@ const ConfigSchedule = ({ initialData }: IProps) => {
   const onAdd = () => {
     setForm({
       ...form,
-      schedule: [...form.schedule, { when: '', what: '' }],
+      schedule: [...form.schedule, { when: '', what: '', key: createTodoKey() }],
     });
   };
 
-  const onRemove = () => {
+  const onRemove = (key: number) => {
     setForm({
       ...form,
-      schedule: form.schedule.slice(0, -1),
+      schedule: form.schedule.filter((item) => item.key !== key),
     });
   };
 
@@ -57,14 +57,17 @@ const ConfigSchedule = ({ initialData }: IProps) => {
       <div data-testid="date">{form.scheduleDate} 나의 일정</div>
       <div>
         <p>add todo</p>
-        {form.schedule.map((item) => (
-          <FlexBox dir="column" key={item.key}>
-            <WhenInput value={item.when} />
-            <WhatInput value={item.what} />
-            <Button onClick={onAdd}>add</Button>
-            <Button onClick={onRemove}>delete</Button>
-          </FlexBox>
-        ))}
+        <FlexBox dir="column">
+          {form.schedule.map((item) => (
+            <FlexBox dir="row" key={item.key} data-testid="todo-when-what">
+              <p>{item.key}</p>
+              <WhenInput value={item.when} />
+              <WhatInput value={item.what} />
+              <Button onClick={onAdd}>add</Button>
+              <Button onClick={() => onRemove(item.key)}>delete</Button>
+            </FlexBox>
+          ))}
+        </FlexBox>
       </div>
       <div>
         <TagInput tags={form.tags} />
