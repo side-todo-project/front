@@ -31,7 +31,7 @@ const Mypage = () => {
       {/* 우측 */}
       <ScheduleFlexBox>
         <DateView />
-        <div>{isEmpty ? <Schedule data={data} /> : <EmptySchedule />}</div>
+        <div>{isEmpty ? <Schedule data={data[0]} /> : <EmptySchedule />}</div>
       </ScheduleFlexBox>
     </ContainerBox>
   );
