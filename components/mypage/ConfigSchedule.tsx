@@ -1,6 +1,6 @@
 import { random } from 'lodash';
 import { IScheduleCreateForm } from '@/types/schedule';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Button from '@/components/common/Button';
 import { createSchedule } from '@/api/client';
 import styled from 'styled-components';
@@ -51,6 +51,21 @@ const ConfigSchedule = ({ initialData }: IProps) => {
       console.error(e);
     }
   };
+
+  const onChangeTodo = useCallback(
+    (kind: 'when' | 'what', key: number, e) => {
+      setForm({
+        ...form,
+        schedule: form.schedule.map((item) => {
+          if (item.key === key) {
+            return { ...item, [kind]: e.target.value };
+          }
+          return item;
+        }),
+      });
+    },
+    [form],
+  );
   // todo 키는 랜덤해시 생성하여 사용
   return (
     <div data-testid="config-schedule-form">
@@ -61,8 +76,8 @@ const ConfigSchedule = ({ initialData }: IProps) => {
           {form.schedule.map((item) => (
             <FlexBox dir="row" key={item.key} data-testid="todo-when-what">
               <p>{item.key}</p>
-              <WhenInput value={item.when} />
-              <WhatInput value={item.what} />
+              <WhenInput value={item.when} onChange={(e) => onChangeTodo('when', item.key, e)} />
+              <WhatInput value={item.what} onChange={(e) => onChangeTodo('what', item.key, e)} />
               <Button onClick={onAdd}>add</Button>
               <Button onClick={() => onRemove(item.key)}>delete</Button>
             </FlexBox>
