@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import TextInput from '../common/TextInput';
 
 const TagInput = ({ tags }) => {
@@ -12,4 +12,4 @@ const TagInput = ({ tags }) => {
   );
 };
 
-export default TagInput;
+export default memo(TagInput);
