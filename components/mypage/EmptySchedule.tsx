@@ -16,7 +16,6 @@ const initialData: IScheduleCreateForm = {
   tags: ['태그1', '태그2'],
 };
 
-
 // 저장된 일정 없을때
 const EmptySchedule = () => {
   const [isConfigMode, setIsConfigMode] = useState(false);

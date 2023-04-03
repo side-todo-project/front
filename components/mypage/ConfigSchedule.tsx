@@ -1,11 +1,11 @@
 import { random } from 'lodash';
 import { IScheduleCreateForm } from '@/types/schedule';
-import React, { useCallback, useState } from 'react';
+import React, { ChangeEvent, useCallback, useState } from 'react';
 import Button from '@/components/common/Button';
 import { createSchedule } from '@/api/client';
-import styled from 'styled-components';
 import { FlexBox } from '@/styles/Utils';
 import TagInput from '@/components/mypage/TagInput';
+import TodoItem from './TodoItem';
 
 // create key
 const createTodoKey = () => {
@@ -13,10 +13,6 @@ const createTodoKey = () => {
 };
 
 /* ---------------------------------- 임시 추가 --------------------------------- */
-const WhenInput = styled.input``;
-
-const WhatInput = styled.input``;
-
 interface IProps {
   initialData: IScheduleCreateForm;
 }
@@ -30,19 +26,23 @@ const ConfigSchedule = ({ initialData }: IProps) => {
     }),
   }));
 
-  const onAdd = () => {
-    setForm({
-      ...form,
-      schedule: [...form.schedule, { when: '', what: '', key: createTodoKey() }],
+  const onAddTodo = useCallback(() => {
+    setForm((prevState) => {
+      return {
+        ...prevState,
+        schedule: [...prevState.schedule, { when: '', what: '', key: createTodoKey() }],
+      };
     });
-  };
+  }, []);
 
-  const onRemove = (key: number) => {
-    setForm({
-      ...form,
-      schedule: form.schedule.filter((item) => item.key !== key),
+  const onRemoveTodo = useCallback((key: number) => {
+    setForm((prevState) => {
+      return {
+        ...prevState,
+        schedule: prevState.schedule.filter((item) => item.key !== key),
+      };
     });
-  };
+  }, []);
 
   const onSubmit = async () => {
     try {
@@ -53,18 +53,20 @@ const ConfigSchedule = ({ initialData }: IProps) => {
   };
 
   const onChangeTodo = useCallback(
-    (kind: 'when' | 'what', key: number, e) => {
-      setForm({
-        ...form,
-        schedule: form.schedule.map((item) => {
-          if (item.key === key) {
-            return { ...item, [kind]: e.target.value };
-          }
-          return item;
-        }),
+    (kind: 'when' | 'what', key: number, e: ChangeEvent<HTMLInputElement>) => {
+      setForm((prevState) => {
+        return {
+          ...prevState,
+          schedule: prevState.schedule.map((item) => {
+            if (item.key === key) {
+              return { ...item, [kind]: e.target.value };
+            }
+            return item;
+          }),
+        };
       });
     },
-    [form],
+    [],
   );
   // todo 키는 랜덤해시 생성하여 사용
   return (
@@ -74,13 +76,15 @@ const ConfigSchedule = ({ initialData }: IProps) => {
         <p>add todo</p>
         <FlexBox dir="column">
           {form.schedule.map((item) => (
-            <FlexBox dir="row" key={item.key} data-testid="todo-when-what">
-              <p>{item.key}</p>
-              <WhenInput value={item.when} onChange={(e) => onChangeTodo('when', item.key, e)} />
-              <WhatInput value={item.what} onChange={(e) => onChangeTodo('what', item.key, e)} />
-              <Button onClick={onAdd}>add</Button>
-              <Button onClick={() => onRemove(item.key)}>delete</Button>
-            </FlexBox>
+            <TodoItem
+              key={item.key}
+              itemKey={item.key}
+              when={item.when}
+              what={item.what}
+              onAddTodo={onAddTodo}
+              onRemoveTodo={onRemoveTodo}
+              onChangeTodo={onChangeTodo}
+            />
           ))}
         </FlexBox>
       </div>
