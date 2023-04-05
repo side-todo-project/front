@@ -4,6 +4,11 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import Footer from './Footer';
 import Header from './Header';
+import HomePage from '@/pages/index';
+
+/**/
+// import { Date } from '@/views/mypage/Date';
+// <Date>목</Date>;
 
 const Container = styled.div`
   width: 100%;
@@ -26,12 +31,12 @@ const Layout = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Container>
         <Header />
-        <FlexBox dir="row" justify="center">
+        {/* <FlexBox dir="row" justify="center">
           <BodyContainer>{children}</BodyContainer>
-        </FlexBox>
+        </FlexBox> */}
+        <HomePage />
         <Footer />
       </Container>
     </>

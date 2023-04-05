@@ -20,15 +20,15 @@ const Box = styled(FlexBox).attrs({ dir: 'row', justify: 'space-between' })`
   width: 100%;
 `;
 
-const Logo = styled(Image).attrs({
-  src: todoFriendsLogo,
-  alt: 'todo-friends-logo',
-  width: 100,
-  height: 100,
-})`
-  width: 11.19rem;
-  height: 1.13rem;
-`;
+// const Logo = styled(Image).attrs({
+//   src: todoFriendsLogo,
+//   alt: 'todo-friends-logo',
+//   width: 100,
+//   height: 100,
+// })`
+//   width: 11.19rem;
+//   height: 1.13rem;
+// `;
 
 const Menu = styled(FlexBox).attrs({ dir: 'row', justify: 'space-between' })`
   width: 8.88rem;
