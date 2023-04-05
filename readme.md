@@ -1,35 +1,38 @@
-# TODO 사이드프로젝트 프론트엔드
+<h1 align="center">Welcome to TODO FRIENDS 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
+</p>
 
-### Next.js ver: v13.1.6
+> 일정 관리 프로젝트
 
-### 설치
-```
-yarn 
-npm install
+## Install
+
+```sh
+yarn install
 ```
 
-### dev환경 실행
-```
+## Usage
+
+### start in development mode
+```sh
 yarn dev
-npm run dev
 ```
 
-
-### 빌드 실행
-```
-yarn build
-npm run build
-```
-
-
-### production 환경에서 실행
-```
+### start in production mode
+```sh
 yarn start
-npm run start
 ```
 
-### storybook 실행
+
+## Run tests
+
+```sh
+yarn test
 ```
-yarn storybook
-npm run storybook
-```
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
