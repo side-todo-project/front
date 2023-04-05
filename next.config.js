@@ -8,11 +8,11 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://localhost:3000/api/:path*',
+        destination: `${process.env.SERVER_PROXY_API}/:path*`,
       },
       {
         source: '/auth/:path*',
-        destination: 'http://localhost:3000/auth/:path*',
+        destination: `${process.env.SERVER_PROXY_AUTH}/:path*`,
       },
     ];
   },

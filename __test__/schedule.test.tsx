@@ -65,7 +65,7 @@ describe('일정 추가', () => {
 
     const addTodoButton = screen.getByText('add');
     fireEvent.click(addTodoButton);
-    
+
     // todo 총 2개
     expect(screen.getAllByTestId('todo-when-what')).toHaveLength(2);
     // find first element

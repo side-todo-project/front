@@ -10,16 +10,16 @@ import CharacterStatusView from '@/views/mypage/CharacterStatusView';
 const CharacterFlexBox = styled(FlexBox).attrs({ dir: 'column', justify: 'space-between' })`
   width: 50%;
   height: 100%;
-  background-color: orange;
+  /* background-color: orange; */
   .title-box {
     height: 100px;
     width: 100%;
-    background-color: green;
+    /* background-color: green; */
   }
   .introduction-box {
-    width: 100%;
+    width: 50%;
     height: 44px;
-    background-color: yellow;
+    /* background-color: yellow; */
   }
 `;
 
@@ -32,7 +32,7 @@ const UserInfo = () => {
           <p>시작한지 1일쩨</p>
         </FlexBox>
         <FlexBox dir="row" className="introduction-box">
-          <TextInput />
+          <TextInput placeholder='한줄 소개를 입력해주세요.'/>
           <Button>확인</Button>
         </FlexBox>
       </FlexBox>
