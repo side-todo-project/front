@@ -14,6 +14,7 @@ const Container = styled.div`
 
 const BodyContainer = styled.div`
   ${layoutMarginStyle};
+  margin-top: 130px;
   width: 100%;
 `;
 

@@ -1,4 +1,4 @@
-import { UserProvider } from '@/components/common/userProvider';
+import { UserProvider } from '@/hooks/userProvider';
 import Layout from '@/components/layout';
 import { defaultQueryOptions } from '@/constants';
 import GlobalStyles from '@/styles/GlobalStyles';

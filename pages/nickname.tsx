@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 const BASEURL = 'http://localhost:3000';
 
+// eslint-disable-next-line
 export default function Nickname() {
   const [nickname, setNickname] = React.useState('');
 
