@@ -8,6 +8,9 @@ import UserStatusView from '@/components/mypage/UserInfo';
 import DateView from '@/views/mypage/DateView';
 import useScheduleQuery from '@/hooks/query/useScheduleQuery';
 import Schedule from '@/components/mypage/Schedule';
+import FetchDataWrapper from '@/components/common/FetchDataWrapper';
+import LoadingUIView from '@/views/common/LoadingUIView';
+import LoadingErrorView from '@/views/common/LoadingErrorView';
 
 const ContainerBox = styled(FlexBox).attrs({ dir: 'row' })`
   width: 100%;
@@ -22,7 +25,7 @@ const ScheduleFlexBox = styled(FlexBox).attrs({ dir: 'column' })`
 `;
 
 const Mypage = () => {
-  const { data, isLoading } = useScheduleQuery();
+  const { data, isLoading, isError } = useScheduleQuery();
   const isEmpty = useMemo(() => data?.length === 0, [data]);
   return (
     <ContainerBox>
@@ -31,7 +34,14 @@ const Mypage = () => {
       {/* 우측 */}
       <ScheduleFlexBox>
         <DateView />
-        <div>{isEmpty ? <Schedule data={data[0]} /> : <EmptySchedule />}</div>
+        <FetchDataWrapper
+          isLoading={isLoading}
+          isError={isError}
+          loadingUI={<LoadingUIView />}
+          errorUI={<LoadingErrorView />}
+        >
+          <div>{isEmpty ? <Schedule data={data[0]} /> : <EmptySchedule />}</div>
+        </FetchDataWrapper>
       </ScheduleFlexBox>
     </ContainerBox>
   );
