@@ -24,8 +24,9 @@ const ScheduleFlexBox = styled(FlexBox).attrs({ dir: 'column' })`
   background-color: ${Palette.White};
 `;
 
-const Mypage = () => {
-  const { data, isLoading, isError, isEmpty } = useScheduleQuery(1);
+const Mypage = ({ scheduleId = 1 }) => {
+  const { data, isLoading, isError, isEmpty } = useScheduleQuery(scheduleId);
+  console.log('################### isEmpty', isEmpty)
   return (
     <ContainerBox>
       {/* 좌측 */}
@@ -39,7 +40,7 @@ const Mypage = () => {
           loadingUI={<LoadingUIView />}
           errorUI={<LoadingErrorView />}
         >
-          <div>{isEmpty ? <Schedule data={data} /> : <EmptySchedule />}</div>
+          <div>{isEmpty ? <EmptySchedule /> : <Schedule data={data} /> }</div>
         </FetchDataWrapper>
       </ScheduleFlexBox>
     </ContainerBox>

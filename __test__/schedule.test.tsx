@@ -7,7 +7,7 @@ describe('Mypage: empty schedule', () => {
   beforeEach(() => {
     render(
       <UnitTestWrapper>
-        <Mypage />
+        <Mypage scheduleId={1}/>
       </UnitTestWrapper>,
     );
   });

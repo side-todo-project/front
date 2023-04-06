@@ -9,7 +9,7 @@ const useScheduleQuery = (scheduleId: number) => {
   });
   return {
     ...queryObj,
-    isEmpty: queryObj.data === undefined,
+    isEmpty: queryObj.data === {},
   };
 };
 
