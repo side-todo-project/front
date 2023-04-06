@@ -1,42 +1,37 @@
 import UnitTestWrapper from '@/components/common/UnitTestWrapper';
 import ConfigSchedule from '@/components/mypage/ConfigSchedule';
-import EmptySchedule from '@/components/mypage/EmptySchedule';
 import Mypage from '@/pages/mypage';
 import { fireEvent, render, screen } from '@testing-library/react';
 
-describe('등록된 일정 없는 경우', () => {
-  it('일정 등록하기 버튼이 보여야 한다.', () => {
-    render(
-      <UnitTestWrapper>
-        <Mypage />
-      </UnitTestWrapper>,
-    );
-    expect(screen.getByText('오늘의 일정이 등록되어 있지 않아요!')).toBeInTheDocument();
-  });
-
-  it('일정 생성버튼 클릭시 등록바튼이 사라진다.', () => {
-    render(
-      <UnitTestWrapper>
-        <Mypage />
-      </UnitTestWrapper>,
-    );
-    const element = screen.getByText('오늘의 일정이 등록되어 있지 않아요!');
-    const addButton = screen.getByText('일정 등록하기');
-
-    fireEvent.click(addButton);
-    expect(element).not.toBeInTheDocument();
-  });
-});
-
-describe('일정 추가', () => {
+describe('Mypage: empty schedule', () => {
   beforeEach(() => {
     render(
       <UnitTestWrapper>
         <Mypage />
       </UnitTestWrapper>,
     );
-    const addButton = screen.getByText('일정 등록하기');
+  });
+
+  it('일정 등록하기 버튼이 보여야 한다.', async () => {
+    expect(await screen.findByText('오늘의 일정이 등록되어 있지 않아요!')).toBeInTheDocument();
+  });
+
+  it('일정 생성버튼 클릭시 등록바튼이 사라진다.', async () => {
+    const element = await screen.findByText('오늘의 일정이 등록되어 있지 않아요!');
+    const addButton = await screen.findByText('일정 등록하기');
+
     fireEvent.click(addButton);
+    expect(element).not.toBeInTheDocument();
+  });
+});
+
+describe('ConfigSchedule Test', () => {
+  beforeEach(() => {
+    render(
+      <UnitTestWrapper>
+        <ConfigSchedule />
+      </UnitTestWrapper>,
+    );
   });
 
   it('일정 생성버튼 클릭시 일정 생성폼이 보여진다.', () => {

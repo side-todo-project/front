@@ -5,6 +5,7 @@ import Button from '@/components/common/Button';
 import { createSchedule } from '@/api/client';
 import { FlexBox } from '@/styles/Utils';
 import TagInput from '@/components/mypage/TagInput';
+import { initialScheduleData } from '@/constants/initailData';
 import TodoItem from './TodoItem';
 
 // create key
@@ -14,11 +15,11 @@ const createTodoKey = () => {
 
 /* ---------------------------------- 임시 추가 --------------------------------- */
 interface IProps {
-  initialData: IScheduleCreateForm;
+  initialData?: IScheduleCreateForm;
 }
 
 // 스케줄 생성/수정
-const ConfigSchedule = ({ initialData }: IProps) => {
+const ConfigSchedule = ({ initialData = initialScheduleData }: IProps) => {
   const [form, setForm] = useState<IScheduleCreateForm>(() => ({
     ...initialData,
     schedule: initialData.schedule.map((item) => {

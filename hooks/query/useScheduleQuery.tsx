@@ -1,11 +1,16 @@
-import { fetchLatestSchedule, fetchSchedule } from '@/api/client';
+import { fetchSchedule } from '@/api/client';
+import { ISchedule } from '@/types/schedule';
 import { useQuery } from '@tanstack/react-query';
+import { AxiosError } from 'axios';
 
-const useScheduleQuery = () => {
-  const queryObj = useQuery(['schedule'], fetchLatestSchedule, {
+const useScheduleQuery = (scheduleId: number) => {
+  const queryObj = useQuery<ISchedule, AxiosError>(['schedule'], () => fetchSchedule(scheduleId), {
     enabled: true,
   });
-  return queryObj;
+  return {
+    ...queryObj,
+    isEmpty: queryObj.data === undefined,
+  };
 };
 
 export default useScheduleQuery;

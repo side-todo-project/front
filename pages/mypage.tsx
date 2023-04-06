@@ -1,5 +1,5 @@
 import { FlexBox } from '@/styles/Utils';
-import React, { useEffect, useMemo, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Palette from '@/styles/Palette';
 import { GetServerSideProps } from 'next';
@@ -25,8 +25,7 @@ const ScheduleFlexBox = styled(FlexBox).attrs({ dir: 'column' })`
 `;
 
 const Mypage = () => {
-  const { data, isLoading, isError } = useScheduleQuery();
-  const isEmpty = useMemo(() => data?.length === 0, [data]);
+  const { data, isLoading, isError, isEmpty } = useScheduleQuery(1);
   return (
     <ContainerBox>
       {/* 좌측 */}
@@ -40,7 +39,7 @@ const Mypage = () => {
           loadingUI={<LoadingUIView />}
           errorUI={<LoadingErrorView />}
         >
-          <div>{isEmpty ? <Schedule data={data[0]} /> : <EmptySchedule />}</div>
+          <div>{isEmpty ? <Schedule data={data} /> : <EmptySchedule />}</div>
         </FetchDataWrapper>
       </ScheduleFlexBox>
     </ContainerBox>

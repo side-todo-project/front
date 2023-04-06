@@ -19,7 +19,7 @@ export const createSchedule = async (schedule: IScheduleCreateForm) => {
 
 // 일정 가져오기
 export const fetchSchedule = async (scheduleId) => {
-  const res = await API.get(`/schedule/${scheduleId}`);
+  const res = await API.get<ISchedule>(`/schedule/${scheduleId}`);
   return res.data;
 };
 
