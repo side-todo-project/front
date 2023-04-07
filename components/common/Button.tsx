@@ -1,4 +1,5 @@
 import Typo from '@/styles/Typo';
+import { memo } from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button<{ width?: number }>`
@@ -29,4 +30,4 @@ const Button = styled.button<{ width?: number }>`
   line-height: 0;
 `;
 
-export default Button;
+export default memo(Button);

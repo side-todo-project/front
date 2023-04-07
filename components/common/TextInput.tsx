@@ -1,7 +1,7 @@
 import Palette from '@/styles/Palette';
 import styled from 'styled-components';
 
-const Input = styled.input.attrs({ type: 'text' })`
+const TextInput = styled.input.attrs({ type: 'text' })`
   width: 100%;
   height: 44px;
   background: ${(p) => p.theme.White};
@@ -10,7 +10,4 @@ const Input = styled.input.attrs({ type: 'text' })`
   border-radius: 8px;
   padding-left: 30px;
 `;
-
-const TextInput = ({ ...props }) => <Input {...props} />;
-
 export default TextInput;

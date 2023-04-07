@@ -1,30 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
-const BASEURL = 'http://3.34.73.43:3000';
+const BASEURL = 'http://localhost:3000';
 
 const KakaoLoginLink = styled.a`
-  & > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    height: 100px;
-    background-color: #ffea00;
-    border-radius: 20px;
-    font-size: 30px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 30px;
+  background-color: #ffea00;
+  border-radius: 6px;
 `;
 
 const NaverLoginLink = styled(KakaoLoginLink)`
-  & > div {
-    background-color: #00c73c;
-  }
+  background-color: #00c73c;
 `;
 
 const GoogleLoginLink = styled(KakaoLoginLink)`
-  & > div {
-    background-color: #4285f4;
-  }
+  background-color: #4285f4;
 `;
 
 const Login = () => {

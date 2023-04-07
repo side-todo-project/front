@@ -172,6 +172,7 @@ const StyledButton = styled(Button)`
   width: 360px;
 `;
 
+// 홈페이지 작업
 const HomePage = () => {
   return (
     <div>

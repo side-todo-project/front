@@ -1,14 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
+  compiler: {
+    styledComponents: true,
+  },
   async rewrites() {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://3.34.73.43:3000/api/:path*',
-      }
-    ]
-  }
-}
+        destination: `${process.env.SERVER_PROXY_API}/:path*`,
+      },
+      {
+        source: '/auth/:path*',
+        destination: `${process.env.SERVER_PROXY_AUTH}/:path*`,
+      },
+    ];
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
