@@ -7,7 +7,7 @@ describe('Mypage: empty schedule', () => {
   beforeEach(() => {
     render(
       <UnitTestWrapper>
-        <Mypage scheduleId={1}/>
+        <Mypage scheduleId={0} />
       </UnitTestWrapper>,
     );
   });
@@ -70,4 +70,16 @@ describe('ConfigSchedule Test', () => {
     // todo 총 1개
     expect(screen.getAllByTestId('todo-when-what')).toHaveLength(1);
   });
+});
+
+describe('Mypage: saved schedule', () => {
+  beforeEach(() => {
+    render(
+      <UnitTestWrapper>
+        <Mypage scheduleId={1} />
+      </UnitTestWrapper>,
+    );
+  });
+
+  it('일정 수정하기 버튼이 보여야 한다.', async () => {});
 });

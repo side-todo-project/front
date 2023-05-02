@@ -26,7 +26,7 @@ const ScheduleFlexBox = styled(FlexBox).attrs({ dir: 'column' })`
 
 const Mypage = ({ scheduleId = 1 }) => {
   const { data, isLoading, isError, isEmpty } = useScheduleQuery(scheduleId);
-  console.log('################### isEmpty', isEmpty)
+  console.log('################### isEmpty', isEmpty, data);
   return (
     <ContainerBox>
       {/* 좌측 */}
